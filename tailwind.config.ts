@@ -51,6 +51,14 @@ export default {
           "4": "var(--chart-4)",
           "5": "var(--chart-5)",
         },
+        // Elegant Pastel Pink Design System
+        'brand-primary': 'hsl(var(--brand-primary))',
+        'brand-primary-light': 'hsl(var(--brand-primary-light))',
+        'brand-primary-dark': 'hsl(var(--brand-primary-dark))',
+        'brand-primary-soft': 'hsl(var(--brand-primary-soft))',
+        'brand-accent': 'hsl(var(--brand-accent))',
+        'brand-accent-light': 'hsl(var(--brand-accent-light))',
+        'brand-accent-soft': 'hsl(var(--brand-accent-soft))',
         sidebar: {
           DEFAULT: "var(--sidebar-background)",
           foreground: "var(--sidebar-foreground)",

@@ -49,15 +49,15 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="elegant-card border-0 border-b border-brand-primary/20 sticky top-0 z-50 backdrop-blur-lg">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="flex justify-between items-center h-18">
             {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-r from-brand-blue to-brand-green rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-white" />
+            <Link href="/" className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-brand-primary rounded-2xl flex items-center justify-center shadow-md">
+                <Users className="w-7 h-7 text-brand-accent" />
               </div>
-              <span className="ml-2 text-xl font-bold text-gray-900">FriendZone</span>
+              <span className="text-2xl font-bold elegant-text tracking-tight">FriendZone</span>
             </Link>
 
             {/* Desktop Navigation Links */}

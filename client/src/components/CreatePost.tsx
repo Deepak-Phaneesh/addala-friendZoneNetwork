@@ -134,21 +134,21 @@ export default function CreatePost() {
   };
 
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="flex items-start space-x-4">
+    <Card className="elegant-card">
+      <CardContent className="p-8">
+        <div className="flex items-start space-x-5">
           <img 
             src={user?.profileImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=48&h=48&fit=crop&crop=face"}
             alt="Your Profile" 
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-14 h-14 rounded-full object-cover border-2 border-brand-primary shadow-sm"
           />
           <div className="flex-1">
             <Textarea
               placeholder={`What's on your mind, ${user?.firstName || user?.username || 'there'}?`}
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="w-full p-4 border border-gray-200 rounded-lg resize-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all duration-200 min-h-[100px]"
-              rows={3}
+              className="elegant-input w-full p-5 rounded-xl resize-none min-h-[120px] text-lg placeholder:elegant-text-soft"
+              rows={4}
             />
             
             {/* Image Preview */}
@@ -176,16 +176,16 @@ export default function CreatePost() {
                   size="sm"
                   onClick={triggerImageUpload}
                   disabled={isUploadingImage}
-                  className="flex items-center text-gray-600 hover:text-brand-green transition-colors duration-200"
+                  className="flex items-center elegant-text-soft hover:text-brand-accent transition-colors duration-300 px-4 py-2"
                 >
                   {isUploadingImage ? (
                     <>
-                      <div className="w-4 h-4 mr-2 animate-spin rounded-full border-2 border-gray-600 border-r-transparent" />
+                      <div className="w-5 h-5 mr-3 animate-spin rounded-full border-2 border-brand-primary border-r-transparent" />
                       Uploading...
                     </>
                   ) : (
                     <>
-                      <Camera className="w-4 h-4 mr-2" />
+                      <Camera className="w-5 h-5 mr-3" />
                       Add Photo
                     </>
                   )}
@@ -203,9 +203,9 @@ export default function CreatePost() {
               <Button 
                 onClick={handlePost}
                 disabled={createPostMutation.isPending || !content.trim()}
-                className="bg-brand-blue hover:bg-brand-blue text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200"
+                className="elegant-button px-8 py-3 text-lg rounded-xl font-bold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300"
               >
-                {createPostMutation.isPending ? "Posting..." : "Post"}
+                {createPostMutation.isPending ? "Sharing..." : "Share"}
               </Button>
             </div>
           </div>

@@ -1,0 +1,85 @@
+/* Elegant Pastel Pink Design System Override */
+
+:root {
+  /* Elegant Pastel Pink & Charcoal Design System */
+  --background: 330 15% 97%;
+  --foreground: 210 20% 25%;
+  --card: 330 20% 99%;
+  --card-foreground: 210 15% 30%;
+  --popover: 330 20% 99%;
+  --popover-foreground: 210 15% 30%;
+  --primary: 330 65% 85%;
+  --primary-foreground: 210 20% 25%;
+  --secondary: 330 15% 95%;
+  --secondary-foreground: 210 15% 35%;
+  --muted: 330 10% 94%;
+  --muted-foreground: 210 10% 50%;
+  --accent: 330 45% 90%;
+  --accent-foreground: 210 20% 25%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 330 20% 90%;
+  --input: 330 15% 92%;
+  --ring: 330 65% 85%;
+  --radius: 0.75rem;
+
+  /* Primary Elegant Pink Palette */
+  --brand-primary: hsl(330, 65%, 85%);
+  --brand-primary-light: hsl(330, 55%, 90%);
+  --brand-primary-dark: hsl(330, 70%, 75%);
+  --brand-primary-soft: hsl(330, 40%, 95%);
+  
+  /* Sophisticated Charcoal Accent */
+  --brand-accent: hsl(210, 20%, 25%);
+  --brand-accent-light: hsl(210, 15%, 35%);
+  --brand-accent-soft: hsl(210, 10%, 50%);
+  
+  /* Gradient backgrounds */
+  --gradient-primary: linear-gradient(135deg, hsl(330, 65%, 92%) 0%, hsl(330, 45%, 95%) 100%);
+  --gradient-card: linear-gradient(145deg, hsl(330, 25%, 98%) 0%, hsl(330, 20%, 99%) 100%);
+}
+
+body {
+  background: var(--gradient-primary);
+  min-height: 100vh;
+}
+
+.elegant-card {
+  background: var(--gradient-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(330, 20%, 90%);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.elegant-button {
+  background: var(--brand-primary);
+  color: var(--brand-accent);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+}
+
+.elegant-button:hover {
+  background: var(--brand-primary-dark);
+  box-shadow: 0 4px 8px -2px rgb(0 0 0 / 0.15);
+}
+
+.elegant-text {
+  color: var(--brand-accent);
+  font-weight: 600;
+}
+
+.elegant-text-soft {
+  color: var(--brand-accent-soft);
+}
+
+.elegant-input {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid hsl(330, 30%, 85%);
+  transition: all 0.2s ease;
+}
+
+.elegant-input:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px hsl(330, 65%, 85%, 0.2);
+}

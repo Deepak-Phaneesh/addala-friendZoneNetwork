@@ -94,31 +94,31 @@ export default function Home() {
         <div className="lg:col-span-1">
           <div className="space-y-6">
             {/* User Profile Card */}
-            <Card>
-              <CardContent className="p-6">
+            <Card className="elegant-card">
+              <CardContent className="p-8">
                 <div className="text-center">
                   <img 
                     src={user?.profileImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=100&h=100&fit=crop&crop=face"}
                     alt="Profile" 
-                    className="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-brand-blue object-cover"
+                    className="w-24 h-24 rounded-full mx-auto mb-6 border-4 border-brand-primary object-cover shadow-md"
                   />
-                  <h3 className="font-semibold text-gray-900">
+                  <h3 className="text-xl font-bold elegant-text mb-2">
                     {user?.firstName && user?.lastName 
                       ? `${user.firstName} ${user.lastName}`
                       : user?.username || user?.email?.split('@')[0] || 'User'
                     }
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="elegant-text-soft text-sm mb-6">
                     {user?.bio || "Welcome to FriendZone!"}
                   </p>
-                  <div className="flex justify-center space-x-4 mt-4 text-sm">
+                  <div className="flex justify-center space-x-8 text-sm">
                     <div className="text-center">
-                      <div className="font-semibold text-brand-blue">0</div>
-                      <div className="text-gray-500">Friends</div>
+                      <div className="text-2xl font-bold text-brand-primary-dark">0</div>
+                      <div className="elegant-text-soft">Friends</div>
                     </div>
                     <div className="text-center">
-                      <div className="font-semibold text-brand-green">{userGroups?.length || 0}</div>
-                      <div className="text-gray-500">Groups</div>
+                      <div className="text-2xl font-bold text-brand-primary-dark">{userGroups?.length || 0}</div>
+                      <div className="elegant-text-soft">Groups</div>
                     </div>
                   </div>
                 </div>

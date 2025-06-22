@@ -115,25 +115,25 @@ export default function PostCard({ post }: PostCardProps) {
   };
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="elegant-card overflow-hidden hover:shadow-lg transition-all duration-300">
       <CardContent className="p-0">
         {/* Post Header */}
-        <div className="p-6 pb-4">
-          <div className="flex items-start justify-between mb-4">
-            <div className="flex items-start space-x-3">
+        <div className="p-8 pb-6">
+          <div className="flex items-start justify-between mb-6">
+            <div className="flex items-start space-x-4">
               <img 
                 src={post.user.profileImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=48&h=48&fit=crop&crop=face"}
                 alt={post.user.firstName || post.user.username || 'User'}
-                className="w-12 h-12 rounded-full object-cover"
+                className="w-14 h-14 rounded-full object-cover border-2 border-brand-primary shadow-sm"
               />
               <div>
-                <h4 className="font-semibold text-gray-900">
+                <h4 className="text-lg font-bold elegant-text">
                   {post.user.firstName && post.user.lastName 
                     ? `${post.user.firstName} ${post.user.lastName}`
                     : post.user.username || post.user.email?.split('@')[0] || 'User'
                   }
                 </h4>
-                <p className="text-sm text-gray-500">
+                <p className="elegant-text-soft text-sm">
                   {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
                 </p>
               </div>
@@ -144,7 +144,7 @@ export default function PostCard({ post }: PostCardProps) {
           </div>
           
           {/* Post Content */}
-          <p className="text-gray-800 mb-4">{post.content}</p>
+          <p className="elegant-text text-lg leading-relaxed mb-6">{post.content}</p>
         </div>
         
         {/* Post Image */}
@@ -157,46 +157,46 @@ export default function PostCard({ post }: PostCardProps) {
         )}
         
         {/* Post Actions */}
-        <div className="p-6 pt-4">
+        <div className="p-8 pt-6">
           {/* Stats */}
-          <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-            <span>{post.likesCount || 0} likes</span>
-            <span>{post.commentsCount || 0} comments</span>
+          <div className="flex items-center justify-between elegant-text-soft text-sm mb-6">
+            <span className="font-medium">{post.likesCount || 0} likes</span>
+            <span className="font-medium">{post.commentsCount || 0} comments</span>
           </div>
           
           {/* Action Buttons */}
-          <div className="flex items-center space-x-6 mb-4">
+          <div className="flex items-center space-x-8 mb-6">
             <Button 
               variant="ghost" 
               size="sm"
               onClick={handleLike}
               disabled={likeMutation.isPending}
-              className={`flex items-center space-x-2 ${
+              className={`flex items-center space-x-3 px-4 py-2 rounded-xl ${
                 post.isLiked 
-                  ? "text-red-500 hover:text-red-600" 
-                  : "text-gray-600 hover:text-red-500"
-              } transition-colors duration-200`}
+                  ? "text-red-500 hover:text-red-600 bg-red-50" 
+                  : "elegant-text-soft hover:text-red-500 hover:bg-red-50"
+              } transition-all duration-300`}
             >
-              <Heart className={`w-4 h-4 ${post.isLiked ? "fill-current" : ""}`} />
-              <span>Like</span>
+              <Heart className={`w-5 h-5 ${post.isLiked ? "fill-current" : ""}`} />
+              <span className="font-medium">Like</span>
             </Button>
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => setShowComments(!showComments)}
-              className="flex items-center space-x-2 text-gray-600 hover:text-brand-blue transition-colors duration-200"
+              className="flex items-center space-x-3 px-4 py-2 rounded-xl elegant-text-soft hover:text-brand-accent hover:bg-brand-primary-soft transition-all duration-300"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>Comment</span>
+              <MessageCircle className="w-5 h-5" />
+              <span className="font-medium">Comment</span>
             </Button>
             <Button 
               variant="ghost" 
               size="sm"
               onClick={handleShare}
-              className="flex items-center space-x-2 text-gray-600 hover:text-brand-orange transition-colors duration-200"
+              className="flex items-center space-x-3 px-4 py-2 rounded-xl elegant-text-soft hover:text-brand-accent hover:bg-brand-primary-soft transition-all duration-300"
             >
-              <Share className="w-4 h-4" />
-              <span>Share</span>
+              <Share className="w-5 h-5" />
+              <span className="font-medium">Share</span>
             </Button>
           </div>
 
