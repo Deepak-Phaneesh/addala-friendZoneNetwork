@@ -1,0 +1,159 @@
+Prompt for Replit AI to Develop a FriendZone App
+Create a full-stack social networking app called "FriendZone" designed for users to connect as friends, share interests, and interact in a friendly, non-romantic environment. The app should have an attractive, modern, and responsive frontend, with a robust backend and database integration. Below are the detailed requirements:
+App Features
+
+User Authentication:
+
+Allow users to sign up and log in securely using email and password.
+Implement secure user authentication with JWT (JSON Web Tokens).
+Include a password reset feature via email.
+
+
+User Profiles:
+
+Users can create and edit profiles with fields for username, bio, profile picture, and interests (e.g., hobbies, favorite activities).
+Display a user’s profile with a clean, visually appealing layout.
+
+
+Friend Connections:
+
+Users can send, accept, and decline friend requests.
+Display a list of friends and pending friend requests.
+Allow users to search for other users by username or interests.
+
+
+Activity Feed:
+
+Show a feed of posts from friends, including text posts and optional image uploads.
+Users can like and comment on posts.
+Posts should display the user’s name, profile picture, and timestamp.
+
+
+Interest-Based Groups:
+
+Users can join or create groups based on shared interests (e.g., gaming, hiking, books).
+Each group has a discussion board for text-based posts.
+
+
+Notifications:
+
+Notify users of friend requests, post likes, comments, and group activity.
+Display notifications in a dedicated section.
+
+
+Responsive Design:
+
+Ensure the app is fully responsive for desktop and mobile devices.
+Use a modern, clean, and vibrant UI with a color scheme featuring soft blues, whites, and accents of green or orange.
+Incorporate smooth animations for transitions (e.g., page loads, button clicks).
+
+
+
+Tech Stack
+
+Frontend:
+
+Use React with Vite for fast development and Tailwind CSS for styling.
+Ensure the UI is component-based, reusable, and follows a mobile-first design approach.
+Use React Router for navigation between pages (e.g., home, profile, groups, notifications).
+
+
+Backend:
+
+Use Node.js with Express.js for the server.
+Implement RESTful API endpoints for user authentication, profiles, friend requests, posts, groups, and notifications.
+Use Supabase for database management (PostgreSQL) to store users, posts, groups, and relationships.
+Integrate Supabase client for seamless database operations from the frontend.
+
+
+Database:
+
+Use Supabase (PostgreSQL) for storing:
+User data (username, email, hashed password, bio, interests, profile picture URL).
+Friend relationships (user-to-user connections).
+Posts (text, images, likes, comments).
+Groups (group name, description, members).
+Notifications (type, sender, receiver, timestamp).
+
+
+
+
+File Storage:
+
+Use Supabase Storage for uploading and serving profile pictures and post images.
+
+
+Security:
+
+Secure API endpoints with JWT authentication.
+Sanitize user inputs to prevent XSS and SQL injection.
+Use HTTPS for all communications.
+
+
+
+Frontend Design Requirements
+
+UI Framework: Use Tailwind CSS for a modern, utility-first approach to styling.
+Layout:
+Include a fixed navigation bar with links to Home, Profile, Groups, Notifications, and Logout.
+Use a card-based layout for posts, profiles, and group listings.
+Implement a sidebar for mobile views that collapses into a hamburger menu.
+
+
+Visual Style:
+Use a clean, minimalistic design with rounded corners, subtle shadows, and hover effects.
+Choose a font like Inter or Poppins for readability.
+Ensure high contrast for accessibility (WCAG 2.1 compliance).
+
+
+Animations:
+Add fade-in effects for page transitions.
+Include hover animations for buttons (e.g., scale or color change).
+Use a loading spinner for asynchronous actions (e.g., fetching posts or sending friend requests).
+
+
+
+Backend Requirements
+
+API Endpoints (examples):
+POST /api/auth/register: Register a new user.
+POST /api/auth/login: Authenticate a user and return a JWT.
+GET /api/users/:id: Fetch user profile data.
+POST /api/friends/request: Send a friend request.
+GET /api/posts: Fetch the activity feed for a user.
+POST /api/groups: Create a new group.
+GET /api/notifications: Fetch user notifications.
+
+
+Database Schema (example tables):
+users: id, username, email, password_hash, bio, interests, profile_picture_url.
+friends: id, user_id, friend_id, status (pending/accepted).
+posts: id, user_id, content, image_url, created_at.
+groups: id, name, description, created_by.
+group_members: group_id, user_id.
+notifications: id, user_id, type, sender_id, created_at.
+
+
+Error Handling:
+Return meaningful error messages (e.g., "User not found" or "Invalid credentials").
+Log errors for debugging without exposing sensitive information.
+
+
+
+Deployment
+
+Deploy the app on Replit with a custom domain (e.g., friendzone.replit.app).
+Ensure the app is production-ready with optimized build processes (e.g., Vite build for frontend).
+Configure environment variables in Replit for Supabase API keys and JWT secrets.
+
+Prompt Instructions
+
+Start by generating the project structure with React, Vite, Tailwind CSS, Node.js, Express, and Supabase integration.
+Create a visually appealing frontend with a focus on user experience and accessibility.
+Set up a Supabase database and storage for user data, posts, and images.
+Implement all features iteratively, testing each component (e.g., authentication, posts, groups) before moving to the next.
+If errors occur, debug them and provide fixes automatically.
+Suggest additional features like real-time chat or dark mode if the core functionality is complete.
+
+Example Prompt for Replit AI
+"Create a full-stack social networking app called FriendZone using React with Vite and Tailwind CSS for the frontend, Node.js with Express for the backend, and Supabase for the database and storage. The app should allow users to sign up, log in, create profiles, send friend requests, post text and images, join interest-based groups, and receive notifications. Use a modern, responsive design with soft blues and green accents, smooth animations, and a card-based layout. Deploy the app on Replit with a custom domain. Test and debug all features, ensuring a production-ready build."
