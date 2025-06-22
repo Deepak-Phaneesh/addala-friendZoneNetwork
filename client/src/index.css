@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* FriendZone custom colors */
+  --brand-blue: hsl(214, 91%, 56%);
+  --brand-blue-light: hsl(214, 91%, 66%);
+  --brand-green: hsl(158, 76%, 40%);
+  --brand-green-light: hsl(158, 76%, 50%);
+  --brand-orange: hsl(43, 96%, 56%);
+  --brand-orange-light: hsl(43, 96%, 66%);
+  --gray-50: hsl(210, 40%, 98%);
+  --gray-100: hsl(210, 40%, 96%);
+  --gray-200: hsl(214, 32%, 91%);
+  --gray-300: hsl(213, 27%, 84%);
+  --gray-400: hsl(215, 20%, 65%);
+  --gray-500: hsl(215, 16%, 47%);
+  --gray-600: hsl(215, 19%, 35%);
+  --gray-700: hsl(215, 25%, 27%);
+  --gray-800: hsl(217, 33%, 17%);
+  --gray-900: hsl(222, 47%, 11%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .brand-blue {
+    color: var(--brand-blue);
+  }
+  
+  .brand-blue-light {
+    color: var(--brand-blue-light);
+  }
+  
+  .brand-green {
+    color: var(--brand-green);
+  }
+  
+  .brand-green-light {
+    color: var(--brand-green-light);
+  }
+  
+  .brand-orange {
+    color: var(--brand-orange);
+  }
+  
+  .brand-orange-light {
+    color: var(--brand-orange-light);
+  }
+
+  .bg-brand-blue {
+    background-color: var(--brand-blue);
+  }
+  
+  .bg-brand-blue-light {
+    background-color: var(--brand-blue-light);
+  }
+  
+  .bg-brand-green {
+    background-color: var(--brand-green);
+  }
+  
+  .bg-brand-green-light {
+    background-color: var(--brand-green-light);
+  }
+  
+  .bg-brand-orange {
+    background-color: var(--brand-orange);
+  }
+  
+  .bg-brand-orange-light {
+    background-color: var(--brand-orange-light);
+  }
+
+  .hover\:bg-brand-blue:hover {
+    background-color: hsl(214, 91%, 46%);
+  }
+  
+  .hover\:bg-brand-green:hover {
+    background-color: hsl(158, 76%, 30%);
+  }
+  
+  .hover\:bg-brand-orange:hover {
+    background-color: hsl(43, 96%, 46%);
+  }
+
+  .text-brand-blue {
+    color: var(--brand-blue);
+  }
+  
+  .text-brand-green {
+    color: var(--brand-green);
+  }
+  
+  .text-brand-orange {
+    color: var(--brand-orange);
+  }
+
+  .hover\:text-brand-blue:hover {
+    color: var(--brand-blue);
+  }
+  
+  .hover\:text-brand-green:hover {
+    color: var(--brand-green);
+  }
+  
+  .hover\:text-brand-orange:hover {
+    color: var(--brand-orange);
+  }
+}
+
+/* Mobile bottom navigation padding */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Loading animation */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
