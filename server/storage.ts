@@ -549,7 +549,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getNotifications(userId: string, limit = 20): Promise<Notification[]> {
-    return await db
+    const results = await db
       .select({
         id: notifications.id,
         userId: notifications.userId,
@@ -567,6 +567,19 @@ export class DatabaseStorage implements IStorage {
       .where(eq(notifications.userId, userId))
       .orderBy(desc(notifications.createdAt))
       .limit(limit);
+
+    return results.map(result => ({
+      id: result.id,
+      userId: result.userId,
+      type: result.type,
+      senderId: result.senderId,
+      postId: result.postId,
+      groupId: result.groupId,
+      message: result.message,
+      read: result.read,
+      createdAt: result.createdAt,
+      sender: result.sender || undefined,
+    }));
   }
 
   async markNotificationRead(id: number): Promise<void> {
