@@ -86,7 +86,9 @@ export default function PostCard({ post }: PostCardProps) {
   });
 
   const handleLike = () => {
-    likeMutation.mutate();
+    if (!likeMutation.isPending) {
+      likeMutation.mutate();
+    }
   };
 
   const handleComment = () => {

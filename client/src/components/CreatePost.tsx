@@ -14,9 +14,10 @@ export default function CreatePost() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [content, setContent] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const createPostMutation = useMutation({
-    mutationFn: async (postData: { content: string }) => {
+    mutationFn: async (postData: { content: string; imageUrl?: string }) => {
       await apiRequest("POST", "/api/posts", postData);
     },
     onSuccess: () => {
@@ -27,6 +28,7 @@ export default function CreatePost() {
       queryClient.invalidateQueries({ queryKey: ["/api/posts/feed"] });
       queryClient.invalidateQueries({ queryKey: ["/api/posts/user"] });
       setContent("");
+      setImageUrl("");
     },
     onError: (error) => {
       if (isUnauthorizedError(error)) {
@@ -50,7 +52,10 @@ export default function CreatePost() {
 
   const handlePost = () => {
     if (content.trim()) {
-      createPostMutation.mutate({ content: content.trim() });
+      createPostMutation.mutate({ 
+        content: content.trim(),
+        imageUrl: imageUrl.trim() || undefined
+      });
     }
   };
 

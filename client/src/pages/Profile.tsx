@@ -22,6 +22,7 @@ export default function Profile() {
     username: "",
     bio: "",
     interests: [] as string[],
+    profileImageUrl: "",
   });
   const [newInterest, setNewInterest] = useState("");
 
@@ -47,6 +48,7 @@ export default function Profile() {
         username: user.username || "",
         bio: user.bio || "",
         interests: user.interests || [],
+        profileImageUrl: user.profileImageUrl || "",
       });
     }
   }, [user]);
@@ -112,6 +114,7 @@ export default function Profile() {
         username: user.username || "",
         bio: user.bio || "",
         interests: user.interests || [],
+        profileImageUrl: user.profileImageUrl || "",
       });
     }
     setIsEditing(false);
@@ -190,11 +193,42 @@ export default function Profile() {
             <div className="flex flex-col md:flex-row gap-6">
               {/* Profile Picture */}
               <div className="flex-shrink-0">
-                <img 
-                  src={user?.profileImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face"}
-                  alt="Profile" 
-                  className="w-32 h-32 rounded-full object-cover border-4 border-brand-blue"
-                />
+                <div className="relative">
+                  <img 
+                    src={isEditing ? editData.profileImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face" : user?.profileImageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&w=150&h=150&fit=crop&crop=face"}
+                    alt="Profile" 
+                    className="w-32 h-32 rounded-full object-cover border-4 border-brand-blue"
+                  />
+                  {isEditing && (
+                    <div className="mt-2">
+                      <Input
+                        value={editData.profileImageUrl}
+                        onChange={(e) => setEditData({ ...editData, profileImageUrl: e.target.value })}
+                        placeholder="Profile picture URL"
+                        className="text-sm"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">
+                        Paste an image URL or use these examples:
+                      </p>
+                      <div className="flex gap-1 mt-1">
+                        {[
+                          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+                          "https://images.unsplash.com/photo-1494790108755-2616b612b913?w=150&h=150&fit=crop&crop=face",
+                          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+                          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face"
+                        ].map((url, index) => (
+                          <button
+                            key={index}
+                            onClick={() => setEditData({ ...editData, profileImageUrl: url })}
+                            className="w-8 h-8 rounded-full border border-gray-300 overflow-hidden hover:border-brand-blue"
+                          >
+                            <img src={url} alt={`Option ${index + 1}`} className="w-full h-full object-cover" />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Profile Info */}
