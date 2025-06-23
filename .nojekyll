@@ -1,5 +1,0 @@
-cd dist  # or build or the folder you are deploying
-touch .nojekyll
-git add .nojekyll
-git commit -m "Add .nojekyll to disable Jekyll"
-git push
