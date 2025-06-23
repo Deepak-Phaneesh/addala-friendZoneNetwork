@@ -1,0 +1,171 @@
+@import './styles/elegant-theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elegant Pastel Pink Design - Override in elegant-theme.css */
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .brand-blue {
+    color: var(--brand-blue);
+  }
+  
+  .brand-blue-light {
+    color: var(--brand-blue-light);
+  }
+  
+  .brand-green {
+    color: var(--brand-green);
+  }
+  
+  .brand-green-light {
+    color: var(--brand-green-light);
+  }
+  
+  .brand-orange {
+    color: var(--brand-orange);
+  }
+  
+  .brand-orange-light {
+    color: var(--brand-orange-light);
+  }
+
+  .bg-brand-blue {
+    background-color: var(--brand-blue);
+  }
+  
+  .bg-brand-blue-light {
+    background-color: var(--brand-blue-light);
+  }
+  
+  .bg-brand-green {
+    background-color: var(--brand-green);
+  }
+  
+  .bg-brand-green-light {
+    background-color: var(--brand-green-light);
+  }
+  
+  .bg-brand-orange {
+    background-color: var(--brand-orange);
+  }
+  
+  .bg-brand-orange-light {
+    background-color: var(--brand-orange-light);
+  }
+
+  .hover\:bg-brand-blue:hover {
+    background-color: hsl(214, 91%, 46%);
+  }
+  
+  .hover\:bg-brand-green:hover {
+    background-color: hsl(158, 76%, 30%);
+  }
+  
+  .hover\:bg-brand-orange:hover {
+    background-color: hsl(43, 96%, 46%);
+  }
+
+  .text-brand-blue {
+    color: var(--brand-blue);
+  }
+  
+  .text-brand-green {
+    color: var(--brand-green);
+  }
+  
+  .text-brand-orange {
+    color: var(--brand-orange);
+  }
+
+  .hover\:text-brand-blue:hover {
+    color: var(--brand-blue);
+  }
+  
+  .hover\:text-brand-green:hover {
+    color: var(--brand-green);
+  }
+  
+  .hover\:text-brand-orange:hover {
+    color: var(--brand-orange);
+  }
+}
+
+/* Mobile bottom navigation padding */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Loading animation */
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
